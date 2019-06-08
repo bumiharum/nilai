@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'SiswaController@index');
-Route::post('/import_excel', 'SiswaController@import_excel');
+Route::get('/pai', 'PAIController@index');
+Route::post('/pai/import_excel', 'PAIController@import_excel');
