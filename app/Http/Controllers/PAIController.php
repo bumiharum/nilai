@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Siswa;
-use App\Imports\SiswaImport;
+use App\PAI;
+use App\Imports\PAIImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
-class SiswaController extends Controller
+class PAIController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-      $siswa = Siswa::all();
-		  return view('pages.index', ['siswa' => $siswa]);
+      $pai = PAI::all();
+		  return view('pages.pai', ['pai' => $pai]);
     }
 
     /**
@@ -28,23 +28,23 @@ class SiswaController extends Controller
     public function import_excel(Request $request)
     {
       // validasi
-		$this->validate($request, [
-			'file' => 'required|mimes:csv,xls,xlsx'
-		]);
+    $this->validate($request, [
+      'file' => 'required|mimes:csv,xls,xlsx'
+    ]);
 
-		// menangkap file excel
-		$file = $request->file('file');
+    // menangkap file excel
+    $file = $request->file('file');
 
-		// membuat nama file unik
-		$nama_file = rand().$file->getClientOriginalName();
+    // membuat nama file unik
+    $nama_file = rand().$file->getClientOriginalName();
 
-		// upload ke folder file_siswa di dalam folder public
-		$file->move('file_siswa',$nama_file);
+    // upload ke folder file_siswa di dalam folder public
+    $file->move('nilai_pai',$nama_file);
 
-		// import data
-		Excel::import(new SiswaImport, public_path('/file_siswa/'.$nama_file));
+    // import data
+    Excel::import(new PAIImport, public_path('/nilai_pai/'.$nama_file));
 
-    return redirect('/');
+    return redirect('/nilai');
     }
 
     /**
@@ -61,10 +61,10 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Siswa  $siswa
+     * @param  \App\pai  $pai
      * @return \Illuminate\Http\Response
      */
-    public function show(Siswa $siswa)
+    public function show(pai $pai)
     {
         //
     }
@@ -72,10 +72,10 @@ class SiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Siswa  $siswa
+     * @param  \App\pai  $pai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Siswa $siswa)
+    public function edit(pai $pai)
     {
         //
     }
@@ -84,10 +84,10 @@ class SiswaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Siswa  $siswa
+     * @param  \App\pai  $pai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Siswa $siswa)
+    public function update(Request $request, pai $pai)
     {
         //
     }
@@ -95,10 +95,10 @@ class SiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Siswa  $siswa
+     * @param  \App\pai  $pai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Siswa $siswa)
+    public function destroy(pai $pai)
     {
         //
     }

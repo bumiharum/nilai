@@ -15,25 +15,25 @@ class CreatePaiTable extends Migration
     {
         Schema::create('pai', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->sting('nama'),
-            $table->integer('semester_1')->nullable(),
-            $table->integer('pengetehuan_1')->nullable(),
-            $table->integer('pengetahuan_1')->nullable(),
-            $table->integer('semester_2')->nullable(),
-            $table->integer('pengetehuan_2')->nullable(),
-            $table->integer('pengetahuan_2')->nullable(),
-            $table->integer('semester_3')->nullable(),
-            $table->integer('pengetehuan_3')->nullable(),
-            $table->integer('pengetahuan_3')->nullable(),
-            $table->integer('semester_4')->nullable(),
-            $table->integer('pengetehuan_4')->nullable(),
-            $table->integer('pengetahuan_4')->nullable(),
-            $table->integer('semester_5')->nullable(),
-            $table->integer('pengetehuan_5')->nullable(),
-            $table->integer('pengetahuan_5')->nullable(),
-            $table->integer('semester_6')->nullable(),
-            $table->integer('pengetehuan_6')->nullable(),
-            $table->integer('pengetahuan_6')->nullable(),
+            $table->string('nama');
+            $table->integer('semester_1')->nullable();
+            $table->integer('pengetahuan_1')->nullable();
+            $table->integer('keterampilan_1')->nullable();
+            $table->integer('semester_2')->nullable();
+            $table->integer('pengetahuan_2')->nullable();
+            $table->integer('keterampilan_2')->nullable();
+            $table->integer('semester_3')->nullable();
+            $table->integer('pengetahuan_3')->nullable();
+            $table->integer('keterampilan_3')->nullable();
+            $table->integer('semester_4')->nullable();
+            $table->integer('pengetahuan_4')->nullable();
+            $table->integer('pketerampilan_4')->nullable();
+            $table->integer('semester_5')->nullable();
+            $table->integer('pengetahuan_5')->nullable();
+            $table->integer('keterampilan_5')->nullable();
+            $table->integer('semester_6')->nullable();
+            $table->integer('pengetahuan_6')->nullable();
+            $table->integer('keterampilan_6')->nullable();
             $table->timestamps();
         });
     }

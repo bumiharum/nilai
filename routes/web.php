@@ -13,3 +13,6 @@
 
 Route::get('/', 'SiswaController@index');
 Route::post('/import_excel', 'SiswaController@import_excel');
+
+Route::get('/nilai', 'PAIController@index');
+Route::post('/nilai/import_excel', 'PAIController@import_excel');
