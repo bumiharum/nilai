@@ -11,93 +11,123 @@
     <title>Hello, world!</title>
   </head>
   <body>
+<div class="container-fluid" style="white-space: nowrap; padding-top: 20px;">
+    <div class="row">
+      <div class="col-md-12">
+        <center>
+          <h4>PENDIDIKAN AGAMA ISLAM</h4><hr>
+        </center>
 
+        {{-- notifikasi form validasi --}}
+        @if ($errors->has('file'))
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $errors->first('file') }}</strong>
+        </span>
+        @endif
 
-    <div class="container">
-  <center>
-    <h4>Import Excel Ke Database Dengan Laravel</h4>
-    <h5><a target="_blank" href="https://www.malasngoding.com/">PAI</a></h5>
-  </center>
+        {{-- notifikasi sukses --}}
+        @if ($sukses = Session::get('sukses'))
+        <div class="alert alert-success alert-block">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>{{ $sukses }}</strong>
+        </div>
+        @endif
 
-  {{-- notifikasi form validasi --}}
-  @if ($errors->has('file'))
-  <span class="invalid-feedback" role="alert">
-    <strong>{{ $errors->first('file') }}</strong>
-  </span>
-  @endif
+        <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
+          IMPORT EXCEL
+        </button>
 
-  {{-- notifikasi sukses --}}
-  @if ($sukses = Session::get('sukses'))
-  <div class="alert alert-success alert-block">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ $sukses }}</strong>
-  </div>
-  @endif
+        <!-- Import Excel -->
+        <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <form method="post" action="/pai/import_excel" enctype="multipart/form-data">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+                </div>
+                <div class="modal-body">
 
-  <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
-    IMPORT EXCEL
-  </button>
+                  {{ csrf_field() }}
 
-  <!-- Import Excel -->
-  <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <form method="post" action="/nilai/import_excel" enctype="multipart/form-data">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
-          </div>
-          <div class="modal-body">
+                  <label>Pilih file excel</label>
+                  <div class="form-group">
+                    <input type="file" name="file" required="required">
+                  </div>
 
-            {{ csrf_field() }}
-
-            <label>Pilih file excel</label>
-            <div class="form-group">
-              <input type="file" name="file" required="required">
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-      </form>
+
+
+
+        <a href="/nilai/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+
+        <table class='table table-bordered'>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th style="color: red">S 1</th>
+              <th>P 1</th>
+              <th>K 1</th>
+              <th style="color: red">S 2</th>
+              <th>P 2</th>
+              <th>K 2</th>
+              <th style="color: red">S 3</th>
+              <th>P 3</th>
+              <th>K 3</th>
+              <th style="color: red">S 4</th>
+              <th>P 4</th>
+              <th>K 4</th>
+              <th style="color: red">S 5</th>
+              <th>P 5</th>
+              <th>K 5</th>
+              <th style="color: red">S 6</th>
+              <th>P 6</th>
+              <th>K 6</th>
+              <th>Nilai Rata-rata</th>
+            </tr>
+          </thead>
+          <tbody>
+            @php $i=1 @endphp
+            @foreach($pai as $s)
+            <tr>
+              <td>{{ $i++ }}</td>
+              <td>{{$s->nama}}</td>
+              <td style="color: red">{{$s->semester_1}}</td>
+              <td>{{$s->pengetahuan_1}}</td>
+              <td>{{$s->keterampilan_1}}</td>
+              <td style="color: red">{{$s->semester_2}}</td>
+              <td>{{$s->pengetahuan_2}}</td>
+              <td>{{$s->keterampilan_2}}</td>
+              <td style="color: red">{{$s->semester_3}}</td>
+              <td>{{$s->pengetahuan_3}}</td>
+              <td>{{$s->keterampilan_3}}</td>
+              <td style="color: red">{{$s->semester_4}}</td>
+              <td>{{$s->pengetahuan_4}}</td>
+              <td>{{$s->keterampilan_4}}</td>
+              <td style="color: red">{{$s->semester_5}}</td>
+              <td>{{$s->pengetahuan_5}}</td>
+              <td>{{$s->keterampilan_5}}</td>
+              <td style="color: red">{{$s->semester_6}}</td>
+              <td>{{$s->pengetahuan_6}}</td>
+              <td>{{$s->keterampilan_6}}</td>
+              <td>{{number_format(($s->pengetahuan_1 + $s->keterampilan_1 + $s->pengetahuan_2 + $s->keterampilan_2 + $s->pengetahuan_3 + $s->keterampilan_3+ $s->pengetahuan_4 + $s->keterampilan_4+ $s->pengetahuan_5 + $s->keterampilan_5+ $s->pengetahuan_6 + $s->keterampilan_6) / 10, 2)}}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
 
 
 
-  <a href="/nilai/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
-  <table class='table table-bordered'>
-    <thead>
-      <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Semeter 1</th>
-        <th>Pengetahuan 1</th>
-        <th>Keterampilan 1</th>
-        <th>Semeter 2</th>
-        <th>Pengetahuan 2</th>
-        <th>Keterampilan 2</th>
-      </tr>
-    </thead>
-    <tbody>
-      @php $i=1 @endphp
-      @foreach($pai as $s)
-      <tr>
-        <td>{{ $i++ }}</td>
-        <td>{{$s->nama}}</td>
-        <td>{{$s->semester_1}}</td>
-        <td>{{$s->pengetahuan_1}}</td>
-        <td>{{$s->keterampilan_1}}</td>
-        <td>{{$s->semester_2}}</td>
-        <td>{{$s->pengetahuan_2}}</td>
-        <td>{{$s->keterampilan_2}}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
 </div>
 
 

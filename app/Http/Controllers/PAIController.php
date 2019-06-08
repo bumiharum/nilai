@@ -44,7 +44,7 @@ class PAIController extends Controller
     // import data
     Excel::import(new PAIImport, public_path('/nilai_pai/'.$nama_file));
 
-    return redirect('/nilai');
+    return redirect('/pai');
     }
 
     /**
