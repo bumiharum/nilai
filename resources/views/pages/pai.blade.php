@@ -91,7 +91,7 @@
               <th style="color: red">S 6</th>
               <th>P 6</th>
               <th>K 6</th>
-              <th>Nilai Rata-rata</th>
+              <th>NR</th>
             </tr>
           </thead>
           <tbody>
