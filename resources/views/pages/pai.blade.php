@@ -11,7 +11,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-<div class="container-fluid" style="white-space: nowrap; padding-top: 20px;">
+<div class="container-fluid" style="padding-top: 20px;">
     <div class="row">
       <div class="col-md-12">
         <center>
@@ -73,22 +73,22 @@
             <tr>
               <th>No</th>
               <th>Nama</th>
-              <th style="color: red">S 1</th>
+              <th style="color: red; width: 10px;">S 1</th>
               <th>P 1</th>
               <th>K 1</th>
-              <th style="color: red">S 2</th>
+              <th style="color: red; width: 10px;" >S 2</th>
               <th>P 2</th>
               <th>K 2</th>
-              <th style="color: red">S 3</th>
+              <th style="color: red; width: 10px;">S 3</th>
               <th>P 3</th>
               <th>K 3</th>
-              <th style="color: red">S 4</th>
+              <th style="color: red; width: 10px;">S 4</th>
               <th>P 4</th>
               <th>K 4</th>
-              <th style="color: red">S 5</th>
+              <th style="color: red; width: 10px;">S 5</th>
               <th>P 5</th>
               <th>K 5</th>
-              <th style="color: red">S 6</th>
+              <th style="color: red; width: 10px;">S 6</th>
               <th>P 6</th>
               <th>K 6</th>
               <th>NR</th>
@@ -100,25 +100,25 @@
             <tr>
               <td>{{ $i++ }}</td>
               <td>{{$s->nama}}</td>
-              <td style="color: red">{{$s->semester_1}}</td>
-              <td>{{$s->pengetahuan_1}}</td>
-              <td>{{$s->keterampilan_1}}</td>
-              <td style="color: red">{{$s->semester_2}}</td>
-              <td>{{$s->pengetahuan_2}}</td>
-              <td>{{$s->keterampilan_2}}</td>
-              <td style="color: red">{{$s->semester_3}}</td>
-              <td>{{$s->pengetahuan_3}}</td>
-              <td>{{$s->keterampilan_3}}</td>
-              <td style="color: red">{{$s->semester_4}}</td>
-              <td>{{$s->pengetahuan_4}}</td>
-              <td>{{$s->keterampilan_4}}</td>
-              <td style="color: red">{{$s->semester_5}}</td>
-              <td>{{$s->pengetahuan_5}}</td>
-              <td>{{$s->keterampilan_5}}</td>
-              <td style="color: red">{{$s->semester_6}}</td>
-              <td>{{$s->pengetahuan_6}}</td>
-              <td>{{$s->keterampilan_6}}</td>
-              <td>{{number_format(($s->pengetahuan_1 + $s->keterampilan_1 + $s->pengetahuan_2 + $s->keterampilan_2 + $s->pengetahuan_3 + $s->keterampilan_3+ $s->pengetahuan_4 + $s->keterampilan_4+ $s->pengetahuan_5 + $s->keterampilan_5+ $s->pengetahuan_6 + $s->keterampilan_6) / 10, 2)}}</td>
+              <td style="color: red">{{$s->S1}}</td>
+              <td>{{$s->P1}}</td>
+              <td>{{$s->K1}}</td>
+              <td style="color: red">{{$s->S2}}</td>
+              <td>{{$s->P2}}</td>
+              <td>{{$s->K2}}</td>
+              <td style="color: red">{{$s->S3}}</td>
+              <td>{{$s->P3}}</td>
+              <td>{{$s->K3}}</td>
+              <td style="color: red">{{$s->S4}}</td>
+              <td>{{$s->P4}}</td>
+              <td>{{$s->K4}}</td>
+              <td style="color: red">{{$s->S5}}</td>
+              <td>{{$s->P5}}</td>
+              <td>{{$s->K5}}</td>
+              <td style="color: red">{{$s->S6}}</td>
+              <td>{{$s->P6}}</td>
+              <td>{{$s->K6}}</td>
+              <td>{{$s->NB}}</td>
             </tr>
             @endforeach
           </tbody>

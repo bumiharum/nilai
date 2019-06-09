@@ -16,7 +16,7 @@ class PAIController extends Controller
      */
     public function index()
     {
-      $pai = PAI::all();
+      $pai = PAI::latest()->get();
 		  return view('pages.pai', ['pai' => $pai]);
     }
 
