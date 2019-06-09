@@ -66,7 +66,7 @@
 
 
 
-        <a href="/nilai/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+        <a href="/pai/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
 
         <table class='table table-bordered'>
           <thead>
