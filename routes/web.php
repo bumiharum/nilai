@@ -11,5 +11,8 @@
 |
 */
 
+
+
 Route::get('/pai', 'PAIController@index');
+Route::get('/pai/export_excel', 'PAIController@export_excel');
 Route::post('/pai/import_excel', 'PAIController@import_excel');

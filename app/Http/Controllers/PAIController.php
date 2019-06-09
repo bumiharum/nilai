@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PAI;
 use App\Imports\PAIImport;
+use App\Exports\PAIExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
@@ -53,9 +54,9 @@ class PAIController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function export_excel()
     {
-        //
+      return Excel::download(new PAIExport, 'pai.xlsx');
     }
 
     /**
