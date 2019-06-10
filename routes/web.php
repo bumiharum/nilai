@@ -12,6 +12,9 @@
 */
 
 
+Route::get('/pkn', 'PKNController@index');
+Route::post('/pkn/import_excel', 'PKNController@import_excel');
+Route::get('/pkn/export_excel', 'PKNController@export_excel');
 
 Route::get('/pai', 'PAIController@index');
 Route::get('/pai/export_excel', 'PAIController@export_excel');

@@ -2,16 +2,16 @@
 
 namespace App\Exports;
 
-use App\PAI;
+use App\PKN;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class PAIExport implements FromCollection
+class PKNExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return PAI::latest()->get();
+        return PKN::latest()->get();
     }
 }
